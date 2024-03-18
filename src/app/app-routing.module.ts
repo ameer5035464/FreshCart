@@ -25,7 +25,7 @@ const routes: Routes = [
     {path:'home' , component:HomeComponent},
     {path:'cart' , component:CartComponent},
     {path:'products' , component:ProductsComponent},
-    {path:'allorders' , component:AllordersComponent},
+    {path:'FreshCart/allorders' , component:AllordersComponent},
     {path:'details/:id' , component:DetailsComponent},
     {path:'categories' , component:CategoriesComponent},
     {path:'brands' , component:BrandsComponent}
