@@ -1,0 +1,36 @@
+<section class="container bg-body-secondary my-5 rounded-3">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-6 ">
+            <div class="overflow-hidden imganimate">
+                <div>
+                    <img class="w-100 rounded-3" [src]="showProduct.imageCover" [alt]="showProduct.title">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div>
+                <h3>
+                    {{showProduct.title}}
+                </h3>
+                <h4>
+                    {{showProduct.description}}
+                </h4>
+
+                <h5>
+                    {{showProduct.category.name}}
+                </h5>
+                <div class="d-flex justify-content-between">
+                    <span>{{showProduct.price}} EGP</span>
+
+                    <div>
+                        <i class="fas fa-star"></i>
+                        <span>{{showProduct.ratingsAverage}}</span>
+                    </div>
+                </div>
+                <button (click)="addToCart(showProduct._id)" class="btn-main w-100 ">Add Cart</button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="home">
+        <img src="./assets/images/freshcart-logo.svg" alt="">
+        </a>   
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" routerLink="home" routerLinkActive="active-link">home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" routerLink="cart" routerLinkActive="active-link">cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" routerLink="products" routerLinkActive="active-link">products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" routerLink="categories" routerLinkActive="active-link">categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" routerLink="brands" routerLinkActive="active-link">brands</a>
+          </li>
+          
+          
+        </ul>
+        <div class="ms-auto">
+
+          <div class="d-flex align-items-center">
+
+          <div class="me-4">
+            
+
+            <i class="fa-solid fa-cart-shopping shopCart cursor-pointer" [ngClass]="hoverIt" (mouseenter)="hoverIt = 'fa-bounce'" (mouseleave)="hoverIt=''"   routerLink="cart"> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill p-1 bg-success">
+              {{crtItems}}
+            </span></i>
+          </div>
+
+          <ul class="navbar-nav  mb-2 mb-lg-0">
+            
+              <li class="nav-item">
+                <a class="nav-link"><i class="fab fa-instagram text"></i></a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link"><i class="fab fa-facebook-f text"></i></a>
+              </li>
+            
+            
+              <li class="nav-item">
+                <a class="nav-link"><i class="fab fa-tiktok text"></i></a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link"><i class="fab fa-twitter text"></i></a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link"><i class="fab fa-linkedin text"></i></a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link"><i class="fab fa-youtube text"></i></a>
+              </li>
+            
+              <li class="nav-item">
+                <span class="nav-link cursor-pointer" (click)="logOut()">Sign Out</span>
+              </li>
+              
+          </ul>
+          </div>
+      </div>
+    
+    </div>
+    </div>
+  </nav>

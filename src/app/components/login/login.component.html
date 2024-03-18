@@ -1,0 +1,38 @@
+<section class="bg-main-light p-3 my-3 rounded-3 mx-auto  w-75">
+    <form [formGroup]="loginForm" (ngSubmit)="handleForm()">
+
+        <div class="mb-2">
+            <label for="email">email :</label>
+            <input formControlName="email" type="email" id="email" class="form-control" >
+            <div class="alert alert-danger" *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+                <p *ngIf="loginForm.get('email')?.getError('required')">email is required</p>
+                <p *ngIf="loginForm.get('email')?.getError('email')">enter correct email</p>
+            </div>
+        </div>
+        
+        <div class="mb-2">
+            <label for="password">password :</label>
+            <input formControlName="password" type="password" id="password" class="form-control" >
+            <div class="alert alert-danger" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+                <p *ngIf="loginForm.get('password')?.getError('required')">password is required</p>
+                <p *ngIf="loginForm.get('password')?.getError('pattern')"> password must start with upperCase then from 6 to 10</p>
+            </div>
+        </div>
+
+        <button class="btn-main ms-auto d-block">
+            <i  class="fas fa-spinner fa-spin" *ngIf="spanstatus"></i>    
+            Login
+        </button>
+        
+            <p class="alert alert-danger" *ngIf="errmsg">{{errmsg}}</p>
+        
+    </form>
+
+    <div class="">
+        <div>
+            <a class="optLogin" routerLink="/register">Register</a>
+            <span class="fw-bold "> / </span>
+            <a class="optLogin" routerLink="/forgetPassword">forget Password</a>
+        </div>
+    </div>
+</section>

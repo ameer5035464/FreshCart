@@ -1,0 +1,72 @@
+<div class="card my-5">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col text-center"><h4><b>Shopping Cart</b></h4></div>
+                </div>
+            </div>    
+            <div class="row ">
+                <div class="row main align-items-center" *ngFor="let item of cartItems.data.products">
+                    <div class="col-2"><img class="img-fluid" [src]="item.product.imageCover"></div>
+                    <div class="col">
+                        <div class="row fw-bolder">{{item.price | currency:'EGP '}}</div>
+                        <div class="row  h6 mt-3">{{item.product.title.split(' ').slice(0,2).join(' ')}}</div>
+                    </div>
+                    <div class="col fw-bold  text-nowrap">
+                       <span class="">Total: </span >{{(item.price)*(item.count) | currency:'EGP '}}
+                    </div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <button class="btn border border-success d-inline cursor-pointer" (click)="updateItem(item.product._id,item.count-1)"  *ngIf="item.count > 1">-</button>
+                        <a class="">{{item.count}}</a>
+                        <button class="btn border border-success d-inline cursor-pointer" (click)="updateItem(item.product._id,item.count+1)">+</button>
+                    </div>
+                    
+                    <button class="btn btn-danger mt-3" (click)="removeItem(item.product._id)">delete</button>
+
+                </div>
+            </div>
+       
+            <div class="back-to-shop"><a routerLink="/home">&leftarrow; Back to shop</a></div>
+        </div>
+
+        <div class="col-md-4 summary">
+            
+            <div><h5><b>Summary</b></h5></div>
+            <hr class="my-0">
+            <div class="row " style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col text-nowrap">Total Products</div>
+                <div class="col text-center fw-bold" style="padding-left:0;">{{cartItems.numOfCartItems}}</div>
+            </div>
+
+            <div class="row " style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">Total Price</div>
+                <div class="col fw-bold text-center">{{cartItems.data.totalCartPrice | currency:'EGP '}}</div>
+            </div>
+            <hr class="my-0">
+
+            <form [formGroup]="checkoutForm" (ngSubmit)="checoutCart()">
+                <h3 class="fw-bold">Delivery Info</h3>
+                <div>
+                <label for="address">Address</label>
+                <input id="addrees" class="form-control" type="text" formControlName="details">
+                </div>
+                <div>
+                <label for="phone">Phone</label>
+                <input id="phone" class="form-control" type="tel" formControlName="phone">
+                </div>
+                <div>
+                <label for="city">City</label>
+                <input id="city" class="form-control" type="text" formControlName="city">
+                </div>
+
+                <button class="btn-main">Checkout</button>
+                
+            </form>
+            
+
+        </div>
+
+    </div>
+    
+</div>
