@@ -46,7 +46,7 @@ export class CartService {
 
   checkout(id:any , cartDetails:object):Observable<any>{
     let currentUrl = window.location.host;
-    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://${currentUrl}` , 
+    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://FreshCart/${currentUrl}` , 
     {
         shippingAddress:cartDetails
     },
