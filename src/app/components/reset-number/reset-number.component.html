@@ -1,0 +1,12 @@
+
+<div class="container">
+    <div class="inputs">
+        
+    <form [formGroup]="verifyResetCode" (ngSubmit)="goToReset()">
+      <label class="text-center">Enter reset code</label>
+      <input   placeholder="reset code"  formControlName="resetCode" />
+      <button class="btn-main">Submet</button>
+    </form>
+
+    </div>
+  </div>
